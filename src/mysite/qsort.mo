@@ -41,3 +41,8 @@ actor {
         Array.freeze(arr2);
     }
 }
+
+
+//let a: [var Int] = [var 1, 6, 3, 7, 2, 30, 30, 50, 9];
+//quicksort(a, 0, a.size()-1);
+//Debug.print(debug_show(a));
