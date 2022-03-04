@@ -27,17 +27,17 @@ actor {
     return l;
     };
 
-    func qsort(arr: [var Int], low: Nat, high: Nat){
+    func sort(arr: [var Int], low: Nat, high: Nat){
     if (low < high){
         var p: Nat = partition(arr, low, high);
-        if(p > 0) qsort(arr, low, p - 1);
-        qsort(arr, p + 1, high);
+        if(p > 0) sort(arr, low, p - 1);
+        sort(arr, p + 1, high);
     };
     };
 
-    public func quicksort(arr: [Int]): async [Int]{
+    public func qsort(arr: [Int]): async [Int]{
         var arr2: [var Int] = Array.thaw(arr);
-        qsort(arr2, 0, arr2.size() - 1);
+        sort(arr2, 0, arr2.size() - 1);
         Array.freeze(arr2);
     }
 }
