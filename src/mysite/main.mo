@@ -11,28 +11,28 @@ actor {
     };
 
     func partition(arr: [var Int], low: Nat, high: Nat): Nat{
-    var l =low;
-    var h = high;
-    let pi = arr[low];
-    while(l < h) {
-        while(l < h and arr[h] >= pi) {
-        h -= 1; 
+        var l =low;
+        var h = high;
+        let pi = arr[low];
+        while(l < h) {
+            while(l < h and arr[h] >= pi) {
+            h -= 1; 
+            };
+            while(l < h and arr[l] <= pi) {
+            l += 1;
+            };
+            if(l < h) swap(arr, l, h);
         };
-        while(l < h and arr[l] <= pi) {
-        l += 1;
-        };
-        if(l < h) swap(arr, l, h);
-    };
-    if(arr[low] > arr[l]) swap(arr, low, l);
-    return l;
+        if(arr[low] > arr[l]) swap(arr, low, l);
+        return l;
     };
 
     func sort(arr: [var Int], low: Nat, high: Nat){
-    if (low < high){
-        var p: Nat = partition(arr, low, high);
-        if(p > 0) sort(arr, low, p - 1);
-        sort(arr, p + 1, high);
-    };
+        if (low < high){
+            var p: Nat = partition(arr, low, high);
+            if(p > 0) sort(arr, low, p - 1);
+            sort(arr, p + 1, high);
+        };
     };
 
     public func qsort(arr: [Int]): async [Int]{
